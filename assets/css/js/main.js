@@ -1,36 +1,12 @@
 // Mobile Navigation Toggle
-const hamburger = document.getElementById('hamburger');
-const navList = document.getElementById('navList');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navList.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a nav link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-    });
-});
-
-// Header scroll effect
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-// JavaScript for Header
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('navList');
+    
+    console.log('Header:', header);
+    console.log('Hamburger:', hamburger);
+    console.log('NavList:', navList);
     
     // Add mobile overlay element
     const mobileOverlay = document.createElement('div');
@@ -48,10 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle mobile menu toggle
     hamburger.addEventListener('click', function() {
+        console.log('Hamburger clicked!');
         hamburger.classList.toggle('active');
         navList.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
         document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
+        console.log('Nav list active:', navList.classList.contains('active'));
     });
     
     // Close mobile menu when clicking on overlay
